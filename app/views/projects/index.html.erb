@@ -1,2 +1,53 @@
-<h1>Projects#index</h1>
-<p>Find me in app/views/projects/index.html.erb</p>
+<div class="index-wrapper">
+  <div class="contents-divider">
+    <div class="row flex-nowrap">
+      <%= render partial: "layouts/sidebar" %>
+      <div class="contents">
+        <div class="target-time">
+          <button type="button" class="btn btn-outline-warning btn-lg btn-block"><a href="#">今日の頑張り時間をつける</a></button>
+        </div>
+        <div class="time-summary">
+          <p class="sub-title">目標に向けて頑張った時間</p>
+          <div class="row flex-nowrap">
+            <div class="time-total-sum">
+              <p class="mini-title">これまでの合計</p>
+              <div class="time-card">
+                <span class="large-text">175</span><span class="unit"> 時間</span>
+              </div>
+            </div>
+            <div class="time-ongoing-sum">
+              <p class="mini-title">取り組み中</p>
+              <div class="time-card">
+                <span class="large-text">25</span><span class="unit"> 時間</span>
+              </div>
+            </div>
+            <div class="time-achievement-ratio">
+              <p class="mini-title">完了した目標の時間達成率</p>
+              <div class="time-card">
+                <span class="large-text">68</span><span class="unit"> %</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ongoing-targets">
+          <p class="sub-title">取組中の目標</p>
+          <div class="column-name">
+            <div class="row">
+              <div class="goal-title mini-title"><span>目標</span></div>
+              <div class="duedate mini-title"><span>期限</span></div>
+              <div class="actual-graph mini-title"><span>頑張り時間達成度</span></div>
+            </div>
+          </div>
+          <!--このclass=effort-cardを繰り返し処理にする-->
+          <div class="effort-card">
+            <div class="row">
+              <div class="goal-description"><span>目標のタイトルを持ってくる。例えば12月の期末試験の国語で学年平均より15点上をとる</span></div>
+              <div class="duedate-description"><span>2022年12月19日</span></div>
+              <div class="actual-graph-description">目標時間と実際に従事した時間をグラフにして持ってくる</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

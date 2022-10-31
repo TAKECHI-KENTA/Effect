@@ -15,6 +15,7 @@
 //= require turbolinks
 
 //= require plotly
+//= require popper
 //= require bootstrap-sprockets
 //= require_jquery_ujs
 

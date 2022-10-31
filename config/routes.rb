@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   resources :users
   resources :projects
   
-  get   'projects/time'
-  post  'projects/time', to: 'projects#update'
+  get   'time', to: 'projects#time'
+  post  'time', to: 'projects#update'
   get   'projects/goal'
   get   'projects/result'
   get   'projects/feedback'

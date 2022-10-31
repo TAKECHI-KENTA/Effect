@@ -1,0 +1,29 @@
+<div class="index-wrapper">
+  <div class="contents-divider">
+    <div class="row flex-nowrap">
+      <%= render partial: "layouts/sidebar" %>
+      <div class="contents">
+        <div class="page-title">
+          <span class="sub-title">頑張り時間の入力</span>
+        </div> 
+        <div class="page-body">
+          <div class="column-name">
+            <div class="row flex-nowrap">
+              <div class="goal-title mini-title"><span>取り組み中の目標</span></div>
+              <div class="time-title mini-title"><span>頑張り時間(分)</span></div>
+              <!-- 登録ボタンにタイトルは不要-->
+            </div>
+          </div>
+          <!--このclass=time-settingを繰り返し処理にする-->
+          <div class="time-setting">
+            <div class="row">
+              <div class="goal-description"><span>目標のタイトルを持ってくる。例えば12月の期末試験の国語で学年平均より15点上をとる。目標のタイトルを持ってくる。例えば12月の期末試験の国語で学年平均より15点上をとる。</span></div>
+              <div class="time-input"><span>時間を入力する空箱</span></div>
+              <div class="btn registration-btn">登録ボタン</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

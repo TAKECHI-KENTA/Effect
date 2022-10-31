@@ -68,7 +68,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
   gem 'pry-byebug'
   gem 'pry-stack_explorer'
   
-  gem 'bootstrap-sass'
+  gem 'bootstrap', '~> 4.1.1'
   gem 'bcrypt'
   gem 'carrierwave'
   gem 'fog-aws'
