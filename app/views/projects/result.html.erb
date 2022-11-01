@@ -1,0 +1,21 @@
+<div class="index-wrapper">
+  <div class="contents-divider">
+    <div class="row flex-nowrap">
+      <%= render partial: "layouts/sidebar" %>
+      <div class="contents">
+        <div class="page-title">
+          <%= form_for @search do |f| %>
+            <form class="form-inline">
+              <%= f.label :取り組み中の目標, class: 'form-label sub-title' %>
+              <%= f.collection_select('[:title]で検索し選択したタイトルのidを@searchに入れる', {include_blank: false}, {class: 'form-control-select form-control'}) %> 
+            </form>
+          <% end %>
+        </div> 
+        <hr class="divider">
+        <div class="page-body">
+          <%= render partial: "projects/search", locals: { search:@search } %> <%#@searchに入ってるproject[:id]を引き渡す%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

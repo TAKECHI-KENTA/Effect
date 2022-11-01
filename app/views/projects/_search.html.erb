@@ -1,0 +1,27 @@
+<div class="contents">
+  <div class="page-title">
+    <span class="sub-title">結果を入れる</span>
+  </div> 
+  <div class="page-body">
+    <div class="row">
+      <%= form_for search do |f| %>
+        <div class="hogehoge">
+          <%= f.label :'達成度合い(%)', class: 'form-label' %>
+          <%= f.text_field :level_of_achievement class: 'form-control level' %>  <%#数値しか入力できなようにする%>
+        </div>
+        <div class="hogehoge">
+          <%= f.label :コメント, class: 'form-label' %>
+          <%= f.text_field :description class: 'form-control description' %> 
+        </div>
+        <div class="goal-post">
+          <% if logged_in? %>
+            <%= f.submit '結果を登録する', class: 'btn btn-outline-warning background-white' %> 
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    <button class="btn btn-outline-warning background-white">
+      目標を完了にする <%# link_to プロジェクトupdate statusをdoneにする操作を行う。hidden使うのかな%>
+    </button>
+  </div>
+</div>

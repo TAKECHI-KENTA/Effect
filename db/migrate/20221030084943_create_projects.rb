@@ -1,7 +1,7 @@
 class CreateProjects < ActiveRecord::Migration[5.2]
   def change
     create_table :projects do |t|
-      t.string :title
+      t.string :title               #タイトル
       t.text :description           #目標推進の意気込み
       t.datetime :duedate           #期日
       t.float :target_time          #目標時間

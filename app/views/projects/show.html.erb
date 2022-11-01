@@ -1,0 +1,153 @@
+<div class="index-wrapper">
+  <div class="contents-divider">
+    <div class="row flex-nowrap">
+      <%= render partial: "layouts/sidebar" %>
+      <% if @project.status.blank? %>
+        <div class="contents">
+          <div class="page-title">
+            <span class="sub-title"><%= @project.title %></span>
+          </div> 
+          <div class="page-body">
+            <div class="time">
+              <div class="title">
+                <p class="sub-title">頑張り時間</p>
+              </div>
+              <table class="time-table">
+                <tr>
+                  <td class="column1">これまでの合計</td>
+                  <td class="column2"><%= @project.actual_time %> 時間</td>
+                  <td class="column3"> </td>
+                </tr>
+                <tr>
+                  <td class="column1">時間達成率</td>
+                  <td class="column2"><%= @project_achievement_ratio %> %</td>
+                  <td class="column3"> </td>
+                </tr>
+                <tr>
+                  <td class="column1">今日の頑張り</td>
+                  <td class="column2"><ここに入力欄を作る> 時間</td>
+                  <td class="column3"><button class="btn btn-outline-warning background-white">つける</button></td>
+                </tr>
+              </table>
+            </div>
+            <div class="goal">
+              <div class="title">
+                <p class="sub-title">目標</p>
+                <button class="btn btn-outline-warning btn-sm background-white">直す</button>
+              </div>
+              <table class="target-table">
+                <tr>
+                  <td class="column1">取り組む意気込み</td>
+                  <td class="column4"><%= @project.description %></td>
+                </tr>
+                <tr>
+                  <td class="column1">頑張る期限</td>
+                  <td class="column4"><%= @project.duedate %></td>
+                </tr>
+                <tr>
+                  <td class="column1">頑張る時間</td>
+                  <td class="column4"><%= @project.target_time %> 時間</td>
+                </tr>
+              </table>
+            </div>
+            <div class="result">
+              <div class="title">
+                <p class="sub-title">結果</p>
+                <button class="btn btn-outline-warning btn-sm background-white">入れる</button>
+              </div>
+              <table class="result-table">
+                <tr>
+                  <td class="column1">目標の達成度合い</td>
+                  <td class="column4">
+                    <% if @project.level_of_achievement.blank? %>
+                      <span>(未入力です)</span>
+                    <% else %>
+                      <%= @project.level_of_achievement %> %
+                    <% end %>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="column1">コメント</td>
+                  <td class="column4">
+                    <% if @project.comment.blank? %>
+                      <span>(未入力です)</span>
+                    <% else %>
+                      <%= @project.comment %>
+                    <% end %>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <button class="btn btn-outline-warning background-white">
+              <span>目標を完了にする</span> <%#hiddenでstatus = doneを送る%>
+            </button>
+          </div>
+        </div>
+      <% else %>
+        <div class="contents">
+          <div class="page-body">
+            <div class="goal">
+              <div class="title">
+                <p class="sub-title">目標</p>
+              </div>
+              <table class="target-table">
+                <tr>
+                  <td class="column1">タイトル</td>
+                  <td class="column4"><%= @project.title %></td>
+                </tr>
+                <tr>
+                  <td class="column1">取り組む意気込み</td>
+                  <td class="column4"><%= @project.description %></td>
+                </tr>
+                <tr>
+                  <td class="column1">頑張る期限</td>
+                  <td class="column4"><%= @project.duedate %></td>
+                </tr>
+                <tr>
+                  <td class="column1">頑張る時間</td>
+                  <td class="column4"><%= @project.target_time %> 時間</td>
+                </tr>
+              </table>
+            </div>
+            <div class="time">
+              <div class="title">
+                <p class="sub-title">頑張り時間</p>
+              </div>
+              <table class="time-table">
+                <tr>
+                  <td class="column1">合計</td>
+                  <td class="column4"><%= @project.actual_time %> 時間</td>
+                </tr>
+                <tr>
+                  <td class="column1">時間達成率</td>
+                  <td class="column4"><%= @project_achievement_ratio %> %</td>
+                </tr>
+              </table>
+            </div>
+            <div class="result">
+              <div class="title">
+                <p class="sub-title">結果</p>
+              </div>
+              <table class="result-table">
+                <tr>
+                  <td class="column1">目標の達成度合い</td>
+                  <td class="column4"><%= @project.level_of_achievement %> %</td>
+                </tr>
+                <tr>
+                  <td class="column1">コメント</td>
+                  <td class="column4"><%= @project.comment %></td>
+                </tr>
+              </table>
+            </div>
+            <button class="btn btn-outline-warning background-white">
+              <span>目標を取り組み中に戻す</span>
+            </button>
+            <button class="btn btn-outline-warning background-white">
+              <span>目標を削除する</span>
+            </button>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -6,11 +6,12 @@ Rails.application.routes.draw do
   resources :users
   resources :projects
   
-  get   'time', to: 'projects#time'
-  post  'time', to: 'projects#update'
-  get   'projects/goal'
-  get   'projects/result'
-  get   'projects/feedback'
+  get   'projects/time', to: 'projects#time'
+  post  'projects/time', to: 'projects#update'
+  get   'projects/result', to: 'projects#result'
+  get   'projects/feedback', to: 'projects#feedback'
+  post  'projects/goal', to: 'projects#update'
+  get   'projects/:id/goal', to: 'projects#goal'
   
   get   '/login',   to: 'sessions#new'
   post  '/login',   to: 'sessions#create'

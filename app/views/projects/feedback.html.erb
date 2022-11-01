@@ -1,0 +1,59 @@
+<div class="index-wrapper">
+  <div class="contents-divider">
+    <div class="row flex-nowrap">
+      <%= render partial: "layouts/sidebar" %>
+      <div class="contents">
+        <div class="page-title">
+          <span class="sub-title">頑張りを振り返る</span>
+        </div> 
+        <div class="page-body">
+          <div class="graph">
+            <div class="title">
+              <span class="sub-title">これまで頑張った時間</span>
+            </div>
+            <div class="plotly card-box" id="#">
+              plotlyでグラフを作る
+            </div>
+          </div>
+          <div class="best3">
+            <div class="title">
+              <span class="sub-title">頑張った目標</span>
+            </div>
+            <div class="row flex-nowrap">
+              <div class="col-md-4 card-box">
+                <p class="card-title">時間ベスト3</p>
+                <div class="row card-content">
+                  <%# eachを3回使って、時間上位3つのプロジェクトを表示する %>
+                    <div class="col-md-6"><span><%= project.title %></span></div>
+                    <div class="col-md-3"><span><%= project.duedate %></span></div>
+                    <div class="col-md-3"><span><%= project.actual_time %>時間</span></div>
+                  <%# end %>
+                </div>
+              </div>
+              <div class="col-md-4 card-box">
+                <p class="card-title">時間達成率ベスト3</p>
+                <div class="row card-content">
+                  <%# eachを3回使って、時間達成率上位3つのプロジェクトを表示する %>
+                    <div class="col-md-6"><span><%= project.title %></span></div>
+                    <div class="col-md-3"><span><%= project.duedate %></span></div>
+                    <div class="col-md-3"><span><%= @project_achievement_ratio %>%</span></div>
+                  <%# end %>
+                </div>
+              </div>
+              <div class="col-md-4 card-box">
+                <p class="card-title">結果達成率ベスト3</p>
+                <div class="row card-content">
+                  <%# eachを3回使って、結果達成率上位3つのプロジェクトを表示する %>
+                    <div class="col-md-6"><span><%= project.title %></span></div>
+                    <div class="col-md-3"><span><%= project.duedate %></span></div>
+                    <div class="col-md-3"><span><%= project.level_of_achievement %>%</span></div>
+                  <%# end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
