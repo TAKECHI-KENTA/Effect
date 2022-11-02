@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2022_10_30_084943) do
     t.float "level_of_achievement"
     t.text "comment"
     t.string "status"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

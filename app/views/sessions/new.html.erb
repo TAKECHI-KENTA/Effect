@@ -1,2 +1,28 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+<div class="users-new-wrapper">
+  <div class="title-logo">
+    GAMBA! (ベータ版)
+  </div>
+  
+  <div class="users-new-container background-white">
+    <div class="row">
+      <div class="col-md-8 offset-md-2 users-new-container">
+        <h2 class="text-center text-gray">ニックネームでログイン</h2>
+        <%= form_for :session, url: login_path do |f| %>
+          <div class="form-position">
+            <%= f.label :ニックネーム, class: 'form-label' %>
+            <%= f.text_field :name, class: 'form-control' %>
+          </div>
+          <div class="form-position">
+            <%= f.label :パスワード, class: 'form-label' %>
+            <%= f.password_field :password, class: 'form-control' %>
+          </div>
+          <%= f.submit "ログイン", class: 'btn btn-outline-warning btn-top' %>
+        <% end %>
+        <div class="login-signup-link">
+          <%= link_to 'まだ登録してない方はこちら', new_user_path %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

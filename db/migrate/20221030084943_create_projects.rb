@@ -9,6 +9,7 @@ class CreateProjects < ActiveRecord::Migration[5.2]
       t.float :level_of_achievement #達成度
       t.text :comment               #結果に対するコメント
       t.string :status              #実行中／完了の区分をする
+      t.integer :user_id
       t.timestamps
     end
   end

@@ -6,6 +6,34 @@ body {
     font-size: 14px;
 }
 
+.users-new-wrapper {
+  width: 100vw;
+  height: 100vh;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  .title-logo {
+    text-align: center;
+    padding-top: 30px;
+    font-size: x-large;
+  }
+  .users-new-container {
+    .form-position {
+      margin: 40px 0 20px 0;
+    }
+    .login-signup-link {
+      margin-top: 20px;
+      color: #2864f0;
+    }
+  }
+  .background-white {
+    background-color: white;
+    margin: 30px 50px;
+    padding: 30px;
+  }
+}
+
 a,a:hover,a:visited{
     color: inherit;
 }
@@ -195,4 +223,21 @@ a,a:hover,a:visited{
       width: 158px;
     }
   }
+}
+
+.form-position {
+  margin-top: 20px;
+  .form-description {
+    height: 150px;
+  }
+  .form-duedate {
+    width: 138px;
+  }
+  .form-target-time {
+    width: 138px;
+  }
+}
+
+.btn-top {
+  margin-top: 30px;
 }
