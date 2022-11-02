@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   def index
-    @projects = Project.all
+    @projects = current_user.projects.all
   end
   
   def new
@@ -33,6 +33,6 @@ class ProjectsController < ApplicationController
   
   private
     def project_params
-      params.require(:project).permit(:title, :description, :duedate, :target_time, :user_id)
+      params.require(:project).permit(:title, :description, :duedate, :target_time)
     end 
 end

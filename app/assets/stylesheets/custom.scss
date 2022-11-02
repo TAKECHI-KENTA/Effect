@@ -52,6 +52,7 @@ a,a:hover,a:visited{
     overflow-y: auto;
     min-width: 150px;
     position: sticky;
+    top: 0px;
     .is-effort-check {
       position: static;
       height: 45px;
@@ -146,9 +147,11 @@ a,a:hover,a:visited{
     margin-bottom: 10px;
     .goal-title {
       width: 316px;
+      margin-left: 15px;
     }
     .duedate-title {
       width: 158px;
+      margin: 0 15px;
     }
     .actual-graph {
       width: 316px;
@@ -158,7 +161,7 @@ a,a:hover,a:visited{
     background-color: white;
     height: 70px;
     border-radius: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     .goal-description {
       width: 316px;
       margin-left: 15px;
