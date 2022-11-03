@@ -8,7 +8,7 @@ class ProjectsController < ApplicationController
   end
   
   def create
-    @project = current_user.projects.new(project_params) 
+    @project = current_user.projects.new(new_project_params) 
     if @project.save
       flash.now[:success] = "頑張り目標を作りました"
       redirect_to projects_path
@@ -19,11 +19,23 @@ class ProjectsController < ApplicationController
   end
   
   def show
+    p params[:id]
+    @project = current_user.projects.find(params[:id])
   end 
-  def update
-  end 
+  
+  
   def time
+    
   end 
+  
+  def update
+    @current_project = current_user.projects.find(params[:id])
+    @current_project[:actual_time] += time_params[:actual_time]
+    @current_project.save
+    render :new
+  end 
+  
+
   def goal
   end 
   def result
@@ -31,8 +43,13 @@ class ProjectsController < ApplicationController
   def feedback
   end 
   
+  
+  
   private
-    def project_params
-      params.require(:project).permit(:title, :description, :duedate, :target_time)
+    def new_project_params
+      params.require(:project).permit(:title, :description, :duedate, :target_time, :actual_time)
+    end 
+    def time_params
+      params.require(:current_project).permit(:actual_time)
     end 
 end

@@ -15,13 +15,17 @@
             </div>
           </div>
           <!--このclass=time-settingを繰り返し処理にする-->
-          <div class="time-setting">
-            <div class="row">
-              <div class="goal-description"><span>目標のタイトルを持ってくる。例えば12月の期末試験の国語で学年平均より15点上をとる。目標のタイトルを持ってくる。例えば12月の期末試験の国語で学年平均より15点上をとる。</span></div>
-              <div class="time-input"><span>時間を入力する空箱</span></div>
-              <div class="btn registration-btn">登録ボタン</div>
+          <% @projects.each do |project| %>
+            <div class="time-setting">
+              <div class="row">
+                  <div class="goal-description"><%= project.title %></div>
+                  <%= form_for @current_project, url:{ controller: 'projects', action: 'update', id: @projects.id} do |f| %>
+                    <div class="time-input"><%= f.text_field :target_time, class: 'form-control form-target-time' %></div>
+                    <div class="registration-btn"><%= f.submit '登録', class: 'btn btn-outline-warning btn-top' %></div>
+                  <% end %>
+              </div>
             </div>
-          </div>
+          <% end %>
         </div>
       </div>
     </div>

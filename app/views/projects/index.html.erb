@@ -39,13 +39,15 @@
             </div>
           </div>
           <% @projects.each do |project| %>
-            <div class="effort-card">
-              <div class="row">
-                <div class="goal-description"><%= project.title %></div>
-                <div class="duedate-description"><%= project.duedate.strftime("%Y年%m月%d日") %></div>
-                <div class="actual-graph-description">目標時間と実際に従事した時間をグラフにして持ってくる</div>
+            <%= link_to(project_path(id: project.id)) do %>
+              <div class="effort-card">
+                <div class="row">
+                  <div class="goal-description"><%= project.title %></div>
+                  <div class="duedate-description"><%= project.duedate.strftime("%Y年%m月%d日") %></div>
+                  <div class="actual-graph-description">目標時間と実際に従事した時間をグラフにして持ってくる</div>
+                </div>
               </div>
-            </div>
+            <% end %>
           <% end %>
         </div>
       </div>

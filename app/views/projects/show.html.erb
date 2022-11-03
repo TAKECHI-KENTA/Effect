@@ -2,15 +2,15 @@
   <div class="contents-divider">
     <div class="row flex-nowrap">
       <%= render partial: "layouts/sidebar" %>
-      <% if @project.status.blank? %>
+      <%if @project.status.blank? %>
         <div class="contents">
           <div class="page-title">
-            <span class="sub-title"><%= @project.title %></span>
+            <h3 class="sub-title"><%= @project.title %></h3>
           </div> 
           <div class="page-body">
             <div class="time">
               <div class="title">
-                <p class="sub-title">頑張り時間</p>
+                <span class="sub-title">頑張り時間</span>
               </div>
               <table class="time-table">
                 <tr>
@@ -25,14 +25,15 @@
                 </tr>
                 <tr>
                   <td class="column1">今日の頑張り</td>
-                  <td class="column2"><ここに入力欄を作る> 時間</td>
-                  <td class="column3"><button class="btn btn-outline-warning background-white">つける</button></td>
+                  <td class="column2">25 時間</td>
+                  <td class="column3"><button class="btn btn-outline-warning btn-sm background-white">つける</button></td>
                 </tr>
               </table>
             </div>
+            <hr>
             <div class="goal">
               <div class="title">
-                <p class="sub-title">目標</p>
+                <span class="sub-title">目標　　</span>
                 <button class="btn btn-outline-warning btn-sm background-white">直す</button>
               </div>
               <table class="target-table">
@@ -42,7 +43,7 @@
                 </tr>
                 <tr>
                   <td class="column1">頑張る期限</td>
-                  <td class="column4"><%= @project.duedate %></td>
+                  <td class="column4"><%= @project.duedate.strftime("%Y年%m月%d日") %></td>
                 </tr>
                 <tr>
                   <td class="column1">頑張る時間</td>
@@ -50,9 +51,10 @@
                 </tr>
               </table>
             </div>
+            <hr>
             <div class="result">
               <div class="title">
-                <p class="sub-title">結果</p>
+                <span class="sub-title">結果　　</span>
                 <button class="btn btn-outline-warning btn-sm background-white">入れる</button>
               </div>
               <table class="result-table">
@@ -78,7 +80,7 @@
                 </tr>
               </table>
             </div>
-            <button class="btn btn-outline-warning background-white">
+            <button class="btn btn-warning background-white">
               <span>目標を完了にする</span> <%#hiddenでstatus = doneを送る%>
             </button>
           </div>
@@ -101,7 +103,7 @@
                 </tr>
                 <tr>
                   <td class="column1">頑張る期限</td>
-                  <td class="column4"><%= @project.duedate %></td>
+                  <td class="column4"><%= @project.duedate.strftime("%Y年%m月%d日") %></td>
                 </tr>
                 <tr>
                   <td class="column1">頑張る時間</td>

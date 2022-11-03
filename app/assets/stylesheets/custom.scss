@@ -36,6 +36,7 @@ body {
 
 a,a:hover,a:visited{
     color: inherit;
+    text-decoration: none;
 }
 
 .contents-divider {
@@ -226,6 +227,24 @@ a,a:hover,a:visited{
       width: 158px;
     }
   }
+  .time {
+    .title {
+      padding-bottom: 10px;
+    }
+  }
+  .goal {
+    .title {
+      display: flex;
+      padding: 10px 0;
+    }
+  }
+  .result {
+    padding-bottom: 40px;
+    .title {
+      display: flex;
+      padding: 10px 0;
+    }
+  }
 }
 
 .form-position {
@@ -243,4 +262,21 @@ a,a:hover,a:visited{
 
 .btn-top {
   margin-top: 30px;
+}
+
+.btn-sm {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.column1 {
+  width: 150px;
+  min-height: 25px;
+}
+.column2 {
+  width: 100px;
+}
+.column4 {
+  width: 650px;
+  min-height: 25px;
 }
