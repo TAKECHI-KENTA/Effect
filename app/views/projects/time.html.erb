@@ -4,24 +4,25 @@
       <%= render partial: "layouts/sidebar" %>
       <div class="contents">
         <div class="page-title">
-          <span class="sub-title">頑張り時間の入力</span>
+          <h3 class="sub-title">頑張り時間の入力</h3>
         </div> 
         <div class="page-body">
           <div class="column-name">
             <div class="row flex-nowrap">
-              <div class="goal-title mini-title"><span>取り組み中の目標</span></div>
-              <div class="time-title mini-title"><span>頑張り時間(分)</span></div>
+              <div class="goal-title mini-title margin-left-15"><span>取り組み中の目標</span></div>
+              <div class="time-title mini-title"><span>頑張り時間(時間)</span></div>
               <!-- 登録ボタンにタイトルは不要-->
             </div>
           </div>
           <!--このclass=time-settingを繰り返し処理にする-->
           <% @projects.each do |project| %>
             <div class="time-setting">
-              <div class="row">
+              <div class="row form-inline flex-nowrap">
                   <div class="goal-description"><%= project.title %></div>
-                  <%= form_for @current_project, url:{ controller: 'projects', action: 'update', id: @projects.id} do |f| %>
-                    <div class="time-input"><%= f.text_field :target_time, class: 'form-control form-target-time' %></div>
-                    <div class="registration-btn"><%= f.submit '登録', class: 'btn btn-outline-warning btn-top' %></div>
+                  <%= form_for @task, url: task_path, html: {class: 'time-registration'} do |f| %>
+                    <div class="time-input"><%= f.text_field :hour, class: 'form-control form-target-time' %></div>
+                    <%= f.hidden_field :project_id, value: project.id %>
+                    <div class="registration-btn"><%= f.submit '登録', class: 'btn btn-outline-warning' %></div>
                   <% end %>
               </div>
             </div>

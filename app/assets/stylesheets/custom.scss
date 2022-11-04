@@ -6,6 +6,9 @@ body {
     font-size: 14px;
 }
 
+.alert {
+  margin-bottom: 0px;
+}
 .users-new-wrapper {
   width: 100vw;
   height: 100vh;
@@ -192,23 +195,27 @@ a,a:hover,a:visited{
 }
 
 .page-title {
-  padding: 15px;
+  padding: 15px 0 0 15px;
 }
 
 .page-body {
-  padding: 15px;
+  padding: 0 0 15px 15px;
   .column-name {
     margin-bottom: 10px;
+    .margin-left-15 {
+      margin-left: 15px;
+    }
     .goal-title {
       width: 474px;
+      margi-left: 15px
     }
     .time-title {
-      width: 158px;
+      width: 120px;
       margin: 0 15px 0 15px;
     }
   }
   .time-setting {
-    padding-bottom: 15px;
+    padding-bottom: 20px;
     .goal-description {
       width: 474px;
       height: 40px;
@@ -219,15 +226,24 @@ a,a:hover,a:visited{
       text-overflow: ellipsis;
       white-space: nowrap;
     }
+    .time-registration {
+      display: flex;
+      background-color: transparent;
+      margin: 0;
+    }
     .time-input {
-      width: 158px;
+      width: 120px;
       margin: 0 15px 0 15px;
+      .form-target-time {
+        width: 120px;
+      }
     }
     .registration-btn {
       width: 158px;
     }
   }
   .time {
+    padding-top: 15px;
     .title {
       padding-bottom: 10px;
     }
@@ -274,7 +290,7 @@ a,a:hover,a:visited{
   min-height: 25px;
 }
 .column2 {
-  width: 100px;
+  width: 200px;
 }
 .column4 {
   width: 650px;

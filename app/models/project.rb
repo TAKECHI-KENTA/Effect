@@ -4,4 +4,5 @@ class Project < ApplicationRecord
   validates :target_time, presence: true
   
   belongs_to :user
+  has_many :tasks
 end

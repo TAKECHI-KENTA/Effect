@@ -4,34 +4,33 @@
       <%= render partial: "layouts/sidebar" %>
       <div class="contents">
         <div class="page-title">
-          <span class="sub-title">目標を直す</span>
+          <h3 class="sub-title">目標を直す</h3>
         </div> 
         <div class="page-body">
-          <div class="row">
-            <%= form_for @project do |f| %> <%#更新にしたいので、既存の内容を入力して修正できるようにする＋submit でupdateする%>
-              <form class="form-inline">
+          <!-- div class="row" -->
+            <%= form_with model: @project, url: { controller: 'projects', action: 'update' } do |f| %> <%#更新にしたいので、既存の内容を入力して修正できるようにする＋submit でupdateする%>
+              <div class="form-position">
                 <%= f.label :タイトル, class: 'form-label' %>
-                <%= f.text_field :title class: 'form-control title' %> 
-              </form>
-              <form class="form-inline">
-                <%= f.label :取り組む意気込み, class: 'form-label' %>
-                <%= f.text_field :description class: 'form-control description' %> 
-              </form>
-              <form class="form-inline">
-                <%= f.label :頑張る期限, class: 'form-label' %>
-                <%= f.date_field :duedate class: 'form-control duedate' %> 
-              </form>
-              <form class="form-inline">
-                <%= f.label :頑張る時間(時間), class: 'form-label' %>
-                <%= f.date_field :target_time class: 'form-control target-time' %> 
-              </form>
-              <div class="goal-post">
-                <% if logged_in? %>
-                  <%= f.submit '目標を登録する', class: 'btn btn-outline-warning' %> 
-                <% end %>
+                <%= f.text_field :title, class: 'form-control form-title' %> 
               </div>
+              <div class="form-position">
+                <%= f.label :取り組む意気込み, class: 'form-label' %>
+                <%= f.text_field :description, class: 'form-control form-description' %> 
+              </div>
+              <div class="form-position">
+                <%= f.label :頑張る期限, class: 'form-label' %>
+                <%= f.date_field :duedate, class: 'form-control form-duedate' %> 
+              </div>
+              <div class="form-position">
+                <%= f.label :"頑張る時間(時間)", class: 'form-label' %>
+                <%= f.text_field :target_time, class: 'form-control form-target-time' %> 
+              </div>
+              <%= f.hidden_field :id, value: params[:project_id] %>
+              <%# if logged_in? %>
+                <%= f.submit '目標を修正する', class: 'btn btn-outline-warning btn-top' %> 
+              <%# end %>
             <% end %>
-          </div>
+          <!--/div -->
         </div>
       </div>
     </div>

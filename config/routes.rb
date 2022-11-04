@@ -1,20 +1,24 @@
 Rails.application.routes.draw do
+  get 'tasks/new'
   get 'sessions/new'
   get 'users/new'
   get 'projects/index'
   root 'sessions#new'
-  resources :users
-  resources :projects
-  
-  get   'projects/time', to: 'projects#time'
-  post  'projects/time', to: 'projects#update'
+ 
+  get   'time', to: 'projects#time'
+  patch  'time', to: 'projects#update'
   get   'projects/result', to: 'projects#result'
   get   'projects/feedback', to: 'projects#feedback'
-  post  'projects/goal', to: 'projects#update'
-  get   'projects/:id/goal', to: 'projects#goal'
+  get   'projects/goal', to: 'projects#goal'
+  patch 'projects/goal', to: 'projects#goal'
   
   get   '/login',   to: 'sessions#new'
   post  '/login',   to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
+  
+  post 'task',       to: 'tasks#create'
+  
+  resources :users
+  resources :projects
   
 end

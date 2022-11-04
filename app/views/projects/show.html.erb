@@ -2,7 +2,7 @@
   <div class="contents-divider">
     <div class="row flex-nowrap">
       <%= render partial: "layouts/sidebar" %>
-      <%if @project.status.blank? %>
+      <% if @project.status.blank? %>
         <div class="contents">
           <div class="page-title">
             <h3 class="sub-title"><%= @project.title %></h3>
@@ -15,7 +15,7 @@
               <table class="time-table">
                 <tr>
                   <td class="column1">これまでの合計</td>
-                  <td class="column2"><%= @project.actual_time %> 時間</td>
+                  <td class="column2"><%= @project_time %> 時間</td>
                   <td class="column3"> </td>
                 </tr>
                 <tr>
@@ -24,9 +24,9 @@
                   <td class="column3"> </td>
                 </tr>
                 <tr>
-                  <td class="column1">今日の頑張り</td>
-                  <td class="column2">25 時間</td>
-                  <td class="column3"><button class="btn btn-outline-warning btn-sm background-white">つける</button></td>
+                  <td class="column1">最後の時間登録</td>
+                  <td class="column2"><%= @project_last_update.strftime("%Y年%m月%d日%k時%M分") %></td>
+                  <td class="column3"><button class="btn btn-outline-warning btn-sm background-white"><%=link_to time_path do %>つける<% end %></li></button></td>
                 </tr>
               </table>
             </div>
@@ -34,7 +34,7 @@
             <div class="goal">
               <div class="title">
                 <span class="sub-title">目標　　</span>
-                <button class="btn btn-outline-warning btn-sm background-white">直す</button>
+                <button class="btn btn-outline-warning btn-sm background-white"><%= link_to projects_goal_path(project_id: params[:id]) do %>直す<% end %></button>
               </div>
               <table class="target-table">
                 <tr>

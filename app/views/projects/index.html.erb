@@ -4,7 +4,7 @@
       <%= render partial: "layouts/sidebar" %>
       <div class="contents">
         <div class="time-registration">
-          <button type="button" class="btn btn-outline-warning btn-lg btn-block"><a href="#">今日の頑張り時間をつける</a></button>
+          <button type="button" class="btn btn-outline-warning btn-lg btn-block"><%= link_to time_path do %>今日の頑張り時間をつける<% end %></button>
         </div>
         <div class="time-summary">
           <p class="sub-title">目標に向けて頑張った時間</p>
