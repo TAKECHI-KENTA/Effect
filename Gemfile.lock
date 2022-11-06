@@ -159,6 +159,7 @@ GEM
     nokogiri (1.13.9)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
+    pg (1.4.4)
     plotly-rails-js (1.39.2)
     popper_js (1.16.1)
     pry (0.14.1)
@@ -287,6 +288,7 @@ DEPENDENCIES
   jquery-rails
   listen (>= 3.0.5, < 3.2)
   mysql2 (>= 0.4.4, < 0.6.0)
+  pg
   plotly-rails-js
   pry-byebug
   pry-doc
