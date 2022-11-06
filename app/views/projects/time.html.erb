@@ -14,8 +14,7 @@
               <!-- 登録ボタンにタイトルは不要-->
             </div>
           </div>
-          <!--このclass=time-settingを繰り返し処理にする-->
-          <% @projects.each do |project| %>
+          <% @ongoing_projects.each do |project| %>
             <div class="time-setting">
               <div class="row form-inline flex-nowrap">
                   <div class="goal-description"><%= project.title %></div>

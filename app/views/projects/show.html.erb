@@ -25,7 +25,13 @@
                 </tr>
                 <tr>
                   <td class="column1">最後の時間登録</td>
-                  <td class="column2"><%= @project_last_update.strftime("%Y年%m月%d日%k時%M分") %></td>
+                  <td class="column2">
+                    <% if @project_last_update.blank? %>
+                      <span>一度も時間登録されていません</span>
+                    <% else %>
+                      <%= @project_last_update.strftime("%Y年%m月%d日 %k時%M分") %>
+                    <% end %>
+                  </td>
                   <td class="column3"><button class="btn btn-outline-warning btn-sm background-white"><%=link_to time_path do %>つける<% end %></li></button></td>
                 </tr>
               </table>
@@ -39,7 +45,7 @@
               <table class="target-table">
                 <tr>
                   <td class="column1">取り組む意気込み</td>
-                  <td class="column4"><%= @project.description %></td>
+                  <td class="column4"><%= safe_join(@project.description.split("\n"),tag(:br)) %></td>
                 </tr>
                 <tr>
                   <td class="column1">頑張る期限</td>
@@ -55,7 +61,7 @@
             <div class="result">
               <div class="title">
                 <span class="sub-title">結果　　</span>
-                <button class="btn btn-outline-warning btn-sm background-white">入れる</button>
+                <button class="btn btn-outline-warning btn-sm background-white"><%= link_to result_path(project_id: params[:id]) do %>入れる<% end %></button>
               </div>
               <table class="result-table">
                 <tr>
@@ -74,15 +80,17 @@
                     <% if @project.comment.blank? %>
                       <span>(未入力です)</span>
                     <% else %>
-                      <%= @project.comment %>
+                      <%= safe_join(@project.comment.split("\n"),tag(:br)) %>
                     <% end %>
                   </td>
                 </tr>
               </table>
             </div>
-            <button class="btn btn-warning background-white">
-              <span>目標を完了にする</span> <%#hiddenでstatus = doneを送る%>
-            </button>
+            <%= form_with model: @project, url: { controller: 'projects', action: 'update' } do |f| %>
+              <%= f.hidden_field :status, value: 'done' %>
+              <%= f.hidden_field :id, value: @project.id %>
+              <%= f.submit '目標を完了にする', class: 'btn btn-warning' %> 
+            <% end %>
           </div>
         </div>
       <% else %>
@@ -99,7 +107,7 @@
                 </tr>
                 <tr>
                   <td class="column1">取り組む意気込み</td>
-                  <td class="column4"><%= @project.description %></td>
+                  <td class="column4"><%= safe_join(@project.description.split("\n"),tag(:br)) %></td>
                 </tr>
                 <tr>
                   <td class="column1">頑張る期限</td>
@@ -137,7 +145,7 @@
                 </tr>
                 <tr>
                   <td class="column1">コメント</td>
-                  <td class="column4"><%= @project.comment %></td>
+                  <td class="column4"><%= safe_join(@project.comment.split("\n"),tag(:br)) %></td>
                 </tr>
               </table>
             </div>

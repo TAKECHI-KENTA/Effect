@@ -7,7 +7,8 @@ Rails.application.routes.draw do
  
   get   'time', to: 'projects#time'
   patch  'time', to: 'projects#update'
-  get   'projects/result', to: 'projects#result'
+  get   'result', to: 'projects#result'
+  patch 'result', to: 'projects#update'
   get   'projects/feedback', to: 'projects#feedback'
   get   'projects/goal', to: 'projects#goal'
   patch 'projects/goal', to: 'projects#goal'

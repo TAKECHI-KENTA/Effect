@@ -5,8 +5,8 @@
   <ul class="sidebar">
     <li class="sidebar-item menu-target"><%= link_to new_project_path do %>目標設定<% end %></li>
     <li class="sidebar-item menu-time"><%=link_to time_path do %>時間入力<% end %></li>
-    <li class="sidebar-item menu-result">結果入力</li>
-    <li class="sidebar-item menu-review">振り返り</li>
+    <li class="sidebar-item menu-result"><%=link_to result_path do %>結果入力<% end %></li>
+    <li class="sidebar-item menu-review"><span>振り返り(準備中)</span></li>
   </ul>
   <div class="sidebar-footer">
     <div class="copyrigth">

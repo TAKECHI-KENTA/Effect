@@ -1,27 +1,28 @@
 <div class="contents">
-  <div class="page-title">
+  <div class="result-title">
     <span class="sub-title">結果を入れる</span>
   </div> 
   <div class="page-body">
-    <div class="row">
-      <%= form_for search do |f| %>
-        <div class="hogehoge">
-          <%= f.label :'達成度合い(%)', class: 'form-label' %>
-          <%= f.text_field :level_of_achievement class: 'form-control level' %>  <%#数値しか入力できなようにする%>
-        </div>
-        <div class="hogehoge">
-          <%= f.label :コメント, class: 'form-label' %>
-          <%= f.text_field :description class: 'form-control description' %> 
-        </div>
-        <div class="goal-post">
-          <% if logged_in? %>
-            <%= f.submit '結果を登録する', class: 'btn btn-outline-warning background-white' %> 
-          <% end %>
-        </div>
-      <% end %>
-    </div>
-    <button class="btn btn-outline-warning background-white">
-      目標を完了にする <%# link_to プロジェクトupdate statusをdoneにする操作を行う。hidden使うのかな%>
+    <%= form_with model: selected_project, url: { controller: 'projects', action: 'update' } do |f| %>
+      <div class="form-position">
+        <%= f.label :'目標達成度合い (%単位で数字だけ入力)', class: 'form-label' %>
+        <%= f.text_field :level_of_achievement, class: 'form-control form-target-time' %>
+      </div>
+      <div class="form-position">
+        <%= f.label :コメント, class: 'form-label' %>
+        <%= f.text_area :comment, class: 'form-control form-description' %> 
+      </div>
+      <%# if logged_in? %>
+        <%= f.hidden_field :id, value: selected_project.id %>
+        <%= f.submit '結果を登録する', class: 'btn btn-outline-warning background-white btn-top' %> 
+      <%# end %>
+      </div>
+    <% end %>
+    <%= form_with model: selected_project, url: { controller: 'projects', action: 'update' } do |f| %>
+      <%= f.hidden_field :status, value: 'done' %>
+      <%= f.hidden_field :id, value: selected_project.id %>
+      <%= f.submit '目標を完了にする', class: 'btn btn-warning btn-top' %> 
+    <% end %>
     </button>
   </div>
 </div>

@@ -4,18 +4,28 @@
       <%= render partial: "layouts/sidebar" %>
       <div class="contents">
         <div class="page-title">
-          <%= form_for @search do |f| %>
-            <form class="form-inline">
-              <%= f.label :取り組み中の目標, class: 'form-label sub-title' %>
-              <%= f.collection_select('[:title]で検索し選択したタイトルのidを@searchに入れる', {include_blank: false}, {class: 'form-control-select form-control'}) %> 
-            </form>
+          <%= form_with url: result_path, method: :get, local: true, id: 'project-form' do |f| %>
+            <%= f.collection_select(:project_id, @ongoing_projects, :id, :title, {include_blank: true, selected: params[:project_id]}, {id: 'selection', class: 'form-control-select form-control'}) %>
           <% end %>
         </div> 
         <hr class="divider">
         <div class="page-body">
-          <%= render partial: "projects/search", locals: { search:@search } %> <%#@searchに入ってるproject[:id]を引き渡す%>
+          <% if params[:project_id].blank? %>
+            <p>結果を入力したい目標を選択してください</p>
+          <% else %>
+            <%= render partial: "projects/search", locals: { selected_project: @selected_project } %>
+          <% end %>
         </div>
       </div>
     </div>
   </div>
+  <!--scrpitをJSファイルに書くと挙動が不安だったためhtmlに記載-->
+  <script>
+    $(function(){
+      $("#selection").change(function(){
+        $("#project-form").submit();
+      });
+    });
+  </script>
 </div>
+

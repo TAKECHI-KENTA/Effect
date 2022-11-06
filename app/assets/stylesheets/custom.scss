@@ -9,6 +9,7 @@ body {
 .alert {
   margin-bottom: 0px;
 }
+
 .users-new-wrapper {
   width: 100vw;
   height: 100vh;
@@ -189,7 +190,7 @@ a,a:hover,a:visited{
     }
     
     .actual-graph-description {
-      width: 316px;
+      width: 301px;
     }
   }
 }
@@ -202,6 +203,7 @@ a,a:hover,a:visited{
   padding: 0 0 15px 15px;
   .column-name {
     margin-bottom: 10px;
+    margin-top: 20px;
     .margin-left-15 {
       margin-left: 15px;
     }
@@ -288,6 +290,7 @@ a,a:hover,a:visited{
 .column1 {
   width: 150px;
   min-height: 25px;
+  vertical-align: baseline;
 }
 .column2 {
   width: 200px;

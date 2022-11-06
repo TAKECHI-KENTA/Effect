@@ -10,21 +10,21 @@
           <p class="sub-title">目標に向けて頑張った時間</p>
           <div class="row flex-nowrap">
             <div class="time-total-sum">
-              <p class="mini-title">これまでの合計</p>
+              <p class="mini-title">これまでの頑張り合計</p>
               <div class="time-card">
-                <span class="large-text">175</span><span class="unit"> 時間</span>
+                <span class="large-text"><%= @all_projects_time %></span><span class="unit"> 時間</span>
               </div>
             </div>
             <div class="time-ongoing-sum">
-              <p class="mini-title">取り組み中</p>
+              <p class="mini-title">取り組み中の目標合計</p>
               <div class="time-card">
-                <span class="large-text">25</span><span class="unit"> 時間</span>
+                <span class="large-text"><%= @ongoing_projects_time %></span><span class="unit"> 時間</span>
               </div>
             </div>
             <div class="time-achievement-ratio">
               <p class="mini-title">完了した目標の時間達成率</p>
               <div class="time-card">
-                <span class="large-text">68</span><span class="unit"> %</span>
+                <span class="large-text"><%= @done_projects_time_ratio %></span><span class="unit"> %</span>
               </div>
             </div>
           </div>
@@ -35,16 +35,36 @@
             <div class="row">
               <div class="goal-title mini-title"><span>目標</span></div>
               <div class="duedate-title mini-title"><span>期限</span></div>
-              <div class="actual-graph mini-title"><span>頑張り時間達成度</span></div>
+              <div class="actual-graph mini-title"><span>頑張りの進み具合</span></div>
             </div>
           </div>
-          <% @projects.each do |project| %>
+          <% @ongoing_projects.each do |project| %>
             <%= link_to(project_path(id: project.id)) do %>
               <div class="effort-card">
                 <div class="row">
                   <div class="goal-description"><%= project.title %></div>
                   <div class="duedate-description"><%= project.duedate.strftime("%Y年%m月%d日") %></div>
-                  <div class="actual-graph-description">目標時間と実際に従事した時間をグラフにして持ってくる</div>
+                  <div class="actual-graph-description">
+                    <%= bar_chart({project.title => ((project.actual_time / project.target_time)*100)}, 
+                      height: '70px', 
+                      min: 0, 
+                      max: 100,
+                      colors: ["#ffc107", "#666"], 
+                      suffix: "%",
+                      round: 1, 
+                      empty: "頑張り時間をつけよう",
+                      library: {
+                        barchartText: 'value',
+                        scales: {
+                          x:{
+                            display: false
+                          }, 
+                          y:{
+                            display: false
+                          }
+                        }
+                      }) %>
+                  </div>
                 </div>
               </div>
             <% end %>

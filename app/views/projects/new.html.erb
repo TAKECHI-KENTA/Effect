@@ -15,7 +15,7 @@
               </div>
               <div class="form-position">
                 <%= f.label :取り組む意気込み, class: 'form-label' %>
-                <%= f.text_field :description, class: 'form-control form-description' %> 
+                <%= f.text_area :description, class: 'form-control form-description' %> 
               </div>
               <div class="form-position">
                 <%= f.label :頑張る期限, class: 'form-label' %>
@@ -25,6 +25,7 @@
                 <%= f.label :'頑張る時間(時間)', class: 'form-label' %>
                 <%= f.text_field :target_time, class: 'form-control form-target-time' %> 
               </div>
+              <%= f.hidden_field :actual_time, value: 0 %>
               <%# if logged_in? %>
                 <%= f.submit '目標を登録する', class: 'btn btn-outline-warning btn-top' %> 
               <%# end %>
